@@ -1,0 +1,43 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [main, master, dev]
+  pull_request:
+    branches: [main, master, dev]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.base_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  integration-test:
+    runs-on: zondax-runners
+    env:
+      RUN_INTEGRATION_TEST: 1
+      NODE_URL: ${{ secrets.NODE_URL }}
+      NETWORK_NAME: "mainnet"
+      NETWORK_SYMBOL: "fil"
+      NODE_TOKEN: ${{ secrets.NODE_TOKEN }}
+      S3_URL: ${{ secrets.S3_URL }}
+      S3_SSL: true
+      S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+      S3_SECRET_KEY: ${{ secrets.S3_SECRET_KEY }}
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      S3_RAW_DATA_PATH: ${{ secrets.S3_RAW_DATA_PATH }}
+      BERYX_TOKEN: ${{ secrets.BERYX_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.24.4"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+    
+      - name: Run integration tests
+        run: make go-test

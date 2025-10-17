@@ -1,0 +1,38 @@
+{
+    "validate-json":{
+        "start": 100000,
+        "end": 100002
+    },
+    "validate-null-blocks":{
+        "start": 3040500,
+        "end": 3040502
+    },
+    "validate-canonical-chain":{
+        "start": 100000,
+        "end": 100002
+    },
+    "validate-address-balance":{
+        "addresses": [
+            "f17c7v76nfp7wvssjpx5gtaag7wokri6w7slgcx4y"
+        ]
+    },
+    "validate-multisig-state":{
+        "addresses": [
+            "f2jyoykpwgxva4vhtryyioc2oirgt42sck7ugnpoq"
+        ]
+    },
+    "validate-address-balance-sequential":{
+        "addresses": [
+            "f1b3kovkthwcsgd47yaxmfzad4oi3m5mj42ewdn5i"
+        ],
+        "start": 265524,
+        "end": 265586
+    },
+    "validate-multisig-state-sequential":{
+        "addresses": [
+            "f2zfva2y65k3u3aeeqdkviftz4jljnkdezr4ym26y"
+        ],
+        "start": 108734,
+        "end": 108771
+    }
+}

@@ -1,0 +1,12 @@
+network_name: "mainnet"  # Network name (mainnet, calibration, etc.)
+network_symbol: "FIL"
+node_url: "https://api.node.glif.io/rpc/v1"  # Filecoin node RPC URL
+node_token: ""  # Optional: Node authentication token
+
+# S3 storage configuration (for trace data)
+s3_url: ""  # S3 endpoint URL
+s3_ssl: true  # Use SSL for S3 connection
+s3_access_key: ""  # S3 access key
+s3_secret_key: ""  # S3 secret key
+s3_bucket: ""  # S3 bucket name
+s3_raw_data_path: ""  # Path within bucket for raw data
